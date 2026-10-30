@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes - LA NFL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b1d3a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Título en Arial Black tamaño 40 */
+        h1.titulo-nfl {
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Tabla de 3x2 */
+        .tabla-imagenes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 850px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .contenedor-img {
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid #d50a0a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            background-color: #1a2b4c;
+            cursor: pointer;
+            height: 240px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Efecto Zoom/Acercamiento al pasar el cursor */
+        .contenedor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .contenedor-img:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Botón de regreso */
+        .btn-regresar {
+            display: inline-block;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #d50a0a;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background-color: #b00707;
+        }
+
+        /* Modal para ver tamaño original al hacer clic */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .modal .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="titulo-nfl">LA NFL</h1>
+
+    <div class="tabla-imagenes">
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen1.jpg" alt="NFL 1" onerror="this.src='Mis Imagenes/imagen1.jpg'">
+        </div>
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen2.jpg" alt="NFL 2" onerror="this.src='Mis Imagenes/imagen2.jpg'">
+        </div>
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen3.jpg" alt="NFL 3" onerror="this.src='Mis Imagenes/imagen3.jpg'">
+        </div>
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen4.jpg" alt="NFL 4" onerror="this.src='Mis Imagenes/imagen4.jpg'">
+        </div>
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen5.jpg" alt="NFL 5" onerror="this.src='Mis Imagenes/imagen5.jpg'">
+        </div>
+        <div class="contenedor-img" onclick="ampliarImagen(this)">
+            <img src="Mis%20Imagenes/imagen6.jpg" alt="NFL 6" onerror="this.src='Mis Imagenes/imagen6.jpg'">
+        </div>
+    </div>
+
+    <!-- Redirección directa e infalible a index.html -->
+    <a href="index.html" class="btn-regresar">← Ir a la página original</a>
+
+    <div id="modalVista" class="modal" onclick="cerrarImagen()">
+        <span class="cerrar">&times;</span>
+        <img id="imagenModal" src="" alt="Imagen ampliada">
+    </div>
+
+    <script>
+        function ampliarImagen(elemento) {
+            const modal = document.getElementById("modalVista");
+            const imgModal = document.getElementById("imagenModal");
+            const imgSeleccionada = elemento.querySelector("img");
+            modal.style.display = "flex";
+            imgModal.src = imgSeleccionada.src;
+        }
+
+        function cerrarImagen() {
+            document.getElementById("modalVista").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

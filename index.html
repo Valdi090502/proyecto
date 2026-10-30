@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333333;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tarjeta-portafolio {
+            background-color: #262626;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: lowercase;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        .contenedor-imagen {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .imagen-uvm {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .contenedor-botones {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-uvm {
+            background-color: #1e7e34;
+        }
+
+        .btn-carrusel {
+            background-color: #004085;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta-portafolio">
+        <h1>mi portafolio javascript</h1>
+        <p>Matias Valdivieso Ramirez</p>
+        <p>campus guadalajara sur</p>
+
+        <div class="contenedor-imagen">
+            <img src="Mis Imagenes/logo-uvm.jpg" 
+                 alt="Logo UVM" 
+                 class="imagen-uvm" 
+                 onerror="this.onerror=null; this.src='Mis%20Imagenes/logo-uvm.png'; if(!this.complete) this.src='Mis%20Imagenes/logo-uvm.jpeg';">
+        </div>
+
+        <div class="contenedor-botones">
+            <!-- Botón UVM con enlace externo configurado -->
+            <a href="https://estudia.uvm.mx/?trackid=goosrcarpaonbrn&gclsrc=aw.ds&&utm_term=uvm&utm_campaign=aw_do_sem_brn_1kwd_uvm&utm_source=adwords&utm_medium=ppc&hsa_acc=6702114222&hsa_cam=239871904&hsa_grp=61484163259&hsa_ad=435691914846&hsa_src=g&hsa_tgt=kwd-39028581&hsa_kw=uvm&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=239871904&gclid=EAIaIQobChMIz5LHl93QlwMV8SRECB2P5wZFEAAYAyAAEgJ-dfD_BwE" 
+               target="_blank" 
+               class="btn btn-uvm">uvm</a>
+
+            <!-- Botón hacia el carrusel de imágenes -->
+            <a href="carrusel.html" class="btn btn-carrusel">carusel de imagenes</a>
+        </div>
+    </div>
+
+</body>
+</html>
